@@ -5,7 +5,7 @@ configurator.__index = configurator
 
 function configurator.new(dir)
     return setmetatable({
-        directory = "Akiri\\Configs\\" .. dir
+        directory = "Axyz\\Configs\\" .. dir
     }, configurator)
 end
 
@@ -69,7 +69,7 @@ function configurator:save(library, name)
     local flags = {}
     for i, v in next, library.flags do
         if library.items[i] and not library.items[i].ignore then
-            flags[i] = type(v) == "table" and Akiri.utils:deepclone(v) or v
+            flags[i] = type(v) == "table" and Axyz.utils:deepclone(v) or v
         end
     end
 	writefile(string.format("%s/%s.cfg", path, name), httpservice:JSONEncode(flags))
