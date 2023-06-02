@@ -21,8 +21,8 @@ end
 
 function customiser:get()
 	local array = {}
-    if isfolder("Akiri\\Themes") then
-		for i, v in next, listfiles("Akiri\\Themes") do
+    if isfolder("Axyz\\Themes") then
+		for i, v in next, listfiles("Axyz\\Themes") do
 			local filename = string.gsub(v, ".*\\", "")
 			if filename and string.sub(filename, #filename - 4) == ".json" then
 				table.insert(array, string.sub(filename, 1, #filename - 5))
@@ -33,7 +33,7 @@ function customiser:get()
 end
 
 function customiser:load(name)
-	local path = "Akiri/Themes/" .. name .. ".json"
+	local path = "Axyz/Themes/" .. name .. ".json"
 	if isfile(path) then
 		local succ, json = pcall(HS.JSONDecode, HS, readfile(path))
 		if succ then
@@ -50,7 +50,7 @@ function customiser:save(theme, name)
 	end
 	local succ, json = pcall(HS.JSONEncode, HS, themecopy)
 	if succ then
-		writefile("Akiri/Themes/" .. name .. ".json", json)
+		writefile("Axyz/Themes/" .. name .. ".json", json)
 	end
 end
 
